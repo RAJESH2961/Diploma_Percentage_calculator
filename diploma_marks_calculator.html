@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIPLOMA_C20</title>
+    <style>
+        body{
+            background-color: rgb(221, 158, 96);
+            
+        }
+        h1{
+            color: rgb(61, 61, 161);
+            text-transform: capitalize;
+        }
+        #main{
+            background-color: none
+            align-content: center;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 2px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 350px;
+            height: auto; /* Adjust the width as needed */
+        }
+        #main:hover{
+            background-color: lightblue
+        }
+        a{
+            color: rgb(47, 139, 10);
+            font-size: large;
+        }
+        b{
+            color: maroon;
+            font-variant: normal;
+        }
+        h2,a{
+            margin-left: 20px;
+        }
+        label,.label{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: larger;
+            text-shadow: blue;
+            word-spacing: 1.2px;
+            
+         
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+          }
+          
+          /* Change Input Border Color on Focus */
+          input:focus {
+            border-color: #007bff; /* Change to your preferred focus color */
+            outline: none; /* Remove the default focus outline */
+          }
+          
+          /* Disable Input */
+          input:disabled {
+            background-color: #f2f2f2; /* Change to your preferred disabled background color */
+            cursor: not-allowed;
+          }
+          
+          /* Styling for Placeholder Text */
+          input::placeholder {
+            color: #999; /* Change to your preferred placeholder text color */
+          }
+          
+          /* Style for Valid Input (e.g., after user fills it out correctly) */
+          input:valid {
+            border-color: #2ecc71; /* Change to your preferred valid input color */
+          }
+          
+          /* Style for Invalid Input (e.g., after user makes an error) */
+          input:invalid {
+            border-color: #e74c3c; /* Change to your preferred invalid input color */
+          }
+          
+          /* Increase Input Height (Useful for Textareas) */
+          textarea {
+            min-height: 100px; /* Adjust the height as needed */
+          }
+         /* Basic Button Styles */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Change to your preferred button background color */
+    margin-top: 12px;
+    margin-left: auto;
+    color: #fff; /* Change to your preferred text color */
+    text-decoration: none; /* Remove underlines for anchor buttons */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Change Button Background Color on Hover */
+  .button:hover {
+    background-color: #0056b3; /* Change to your preferred hover background color */
+  }
+  
+  /* Disable Button */
+  .button:disabled {
+    background-color: #f2f2f2; /* Change to your preferred disabled button background color */
+    color: #999; /* Change to your preferred disabled button text color */
+    cursor: not-allowed;
+  }
+  
+  /* Add Box Shadow to Button */
+  .button {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Change to your preferred box shadow */
+  }
+  
+  /* Style for Active/Focused Button (e.g., when clicked) */
+  .button:active,
+  .button:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Change to your preferred active/focus box shadow */
+    transform: translateY(1px); /* Add a subtle press effect */
+  }
+  
+       
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <marquee behavior="alternate" direction="scroll" width="100%"><h1>Welcome TO Diploma C-20 Marks calculator</h1></marquee>
+        <h2><b>NOTE :</b>This is an Diploma Marks percentage calculator,Who are all eligible In C20 &C23 Regulations by S.B.T.E.T (A.P) can check your Grades here. </h2>
+        <a href="https://docs.google.com/document/d/1d_gu-wMN8geX_lo9gpgLEnmZWl9tjalDBEjsLeiABPU/edit" target="_blank" rel="noopener noreferrer">See How the grades are calculated</a>
+        </div>
+        <div id="main">
+            <form action="">
+                <p class="label">Select Your Curriculam
+                <input type="radio" name="curriculam" id="">C20
+                <input type="radio" name="curriculam" id="">C23<br></p>
+                
+
+                <label for="1st">Enter First Year Marks</label>
+                
+                <br><input type="text" id="1st" placeholder="1000" maxlength="4">
+                <br>
+                <label for="3rd">Enter 3 rd Sem Marks </label>
+                
+                <br><input type="text" id="3rd" placeholder="900" maxlength="3">
+                <br>
+
+                <label for="4th">Enter 4 th Sem Marks </label> 
+                <br><input type="text" id="4th" placeholder="900" maxlength="3">
+                <br>
+
+                <label for="5th">Enter 5 th Sem Marks </label>  
+                <br><input type="text" id="5th" placeholder="900" maxlength="3">
+                <br>
+
+                <label for="6th">Enter 6 th Sem Marks </label>  
+                <br><input type="text" id="6th" placeholder="300" maxlength="3">
+
+                <br>
+                <button type="button" class="button" onclick="calculate()">SUBMIT</button>
+
+                <button type="reset" class="button">RESET</button>
+
+                <br>
+                <label for="">Your Final Percentage Here</label><br>
+                <input id="total">
+                <p id="total"></p>
+               
+            </form>
+        
+        </div>
+    </header>
+    <script>
+       
+        function calculate() {
+            var sem1 = parseInt(document.getElementById('1st').value);
+            var sem3 = parseInt(document.getElementById('3rd').value);
+            var sem4 = parseInt(document.getElementById('4th').value);
+            var sem5 = parseInt(document.getElementById('5th').value);
+            var sem6 = parseInt(document.getElementById('6th').value);
+        
+            // You don't need to multiply these by 1
+            // sem1 = sem1 * 1;
+            // sem3 = sem3 * 1;
+            // sem4 = sem4 * 1;
+            // sem5 = sem5 * 1;
+            // sem6 = sem6 * 1;
+        
+            var total = (((sem1 * 0.25) + sem3 * 1 + sem4 * 1 + sem5 * 1 + sem6 * 1) / 3250) * 100;
+            document.getElementById("total").value = parseFloat(total.toFixed(2)); // Fixed to two decimal places
+        }
+        
+    </script>
+    
+</body>
+</html>
