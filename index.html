@@ -1,203 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIPLOMA_C20</title>
-    <style>
-        body{
-            background-color: rgb(221, 158, 96);
-            
-        }
-        h1{
-            color: rgb(61, 61, 161);
-            text-transform: capitalize;
-        }
-        #main{
-            background-color: none
-            align-content: center;
-            text-align: center;
-            border: 2px solid black;
-            border-radius: 2px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 350px;
-            height: auto; /* Adjust the width as needed */
-        }
-        #main:hover{
-            background-color: lightblue
-        }
-        a{
-            color: rgb(47, 139, 10);
-            font-size: large;
-        }
-        b{
-            color: maroon;
-            font-variant: normal;
-        }
-        h2,a{
-            margin-left: 20px;
-        }
-        label,.label{
-            font-family: 'Times New Roman', Times, serif;
-            font-size: larger;
-            text-shadow: blue;
-            word-spacing: 1.2px;
-            
-         
-        }
-        input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-          }
-          
-          /* Change Input Border Color on Focus */
-          input:focus {
-            border-color: #007bff; /* Change to your preferred focus color */
-            outline: none; /* Remove the default focus outline */
-          }
-          
-          /* Disable Input */
-          input:disabled {
-            background-color: #f2f2f2; /* Change to your preferred disabled background color */
-            cursor: not-allowed;
-          }
-          
-          /* Styling for Placeholder Text */
-          input::placeholder {
-            color: #999; /* Change to your preferred placeholder text color */
-          }
-          
-          /* Style for Valid Input (e.g., after user fills it out correctly) */
-          input:valid {
-            border-color: #2ecc71; /* Change to your preferred valid input color */
-          }
-          
-          /* Style for Invalid Input (e.g., after user makes an error) */
-          input:invalid {
-            border-color: #e74c3c; /* Change to your preferred invalid input color */
-          }
-          
-          /* Increase Input Height (Useful for Textareas) */
-          textarea {
-            min-height: 100px; /* Adjust the height as needed */
-          }
-         /* Basic Button Styles */
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff; /* Change to your preferred button background color */
-    margin-top: 12px;
-    margin-left: auto;
-    color: #fff; /* Change to your preferred text color */
-    text-decoration: none; /* Remove underlines for anchor buttons */
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  /* Change Button Background Color on Hover */
-  .button:hover {
-    background-color: #0056b3; /* Change to your preferred hover background color */
-  }
-  
-  /* Disable Button */
-  .button:disabled {
-    background-color: #f2f2f2; /* Change to your preferred disabled button background color */
-    color: #999; /* Change to your preferred disabled button text color */
-    cursor: not-allowed;
-  }
-  
-  /* Add Box Shadow to Button */
-  .button {
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Change to your preferred box shadow */
-  }
-  
-  /* Style for Active/Focused Button (e.g., when clicked) */
-  .button:active,
-  .button:focus {
-    outline: none; /* Remove the default focus outline */
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* Change to your preferred active/focus box shadow */
-    transform: translateY(1px); /* Add a subtle press effect */
-  }
-  
-       
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIPLOMA C20 - Marks Calculator</title>
+  <style>
+    /* Global Styles */
+    body {
+      /* background: linear-gradient(135deg, #3498db, #2ecc71); */
+      background: rgb(0, 0, 0);
+      /* background: linear-gradient(216deg, rgba(94,170,60,1) 25%, rgba(78,131,222,1) 77%); */
+      /* Calm Blue to Growth Green gradient */
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #ecf0f1;
+      /* Light text for dark background */
+      /* line-height: 1.6; */
+      display: flex;
+      justify-content: center;
+      /* align-items: left; */
+      height: 100vh;
+      text-align: left;
+    }
+
+    header {
+      text-align: left;
+      margin-bottom: 0px;
+      /* background-color: #2ecc71; */
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #e74c3c;
+      font-size: 72px;
+      background: -webkit-linear-gradient(#eee, #333);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* Red for emphasis on heading */
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: #bdc3c7;
+      /* Light gray for description */
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #e94e77;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Form container styles */
+    #main {
+      background-color: #000000;
+      /* Dark background for form */
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+      /* box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px; */
+      /* Form shadow */
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px;
+      height: 90%;
+      /* max-height: 85%; */
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #ecf0f1;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #e74c3c;
+      /* Focused border color */
+      box-shadow: 0px 0px 8px rgba(231, 76, 60, 0.5);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn {
+      background-color: #2ecc71;
+      /* Green for positive action */
+      color: white;
+    }
+
+    .reset-btn {
+      background-color: #e74c3c;
+      /* Red for reset, signaling urgency */
+      color: white;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    /* Result display */
+    #result {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2ecc71;
+      /* Green text for result */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      /* Form container styles */
+      #main {
+        padding: 20px;
+        max-width: 80%;
+      }
+
+      .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 0.9rem;
+      }
+
+      input {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      .button {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      .button-container {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      /* Default layout: vertical stacking */
+      align-items: center;
+    }
+
+    /* Media query for larger screens */
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: row;
+        /* Horizontal layout */
+        justify-content: space-between;
+      }
+
+      header,
+      main {
+        flex: 1;
+        /* Equal width for both */
+      }
+    }
+
+    #calculated_details {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    #details_section {
+      text-align: left;
+      /* cursor: pointer; */
+
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
+
+
     <header>
-        <div>
-            <marquee behavior="alternate" direction="scroll" width="100%"><h1>Welcome TO Diploma C-20 Marks calculator</h1></marquee>
-        <h2><b>NOTE :</b>This is an Diploma Marks percentage calculator,Who are all eligible In C20 &C23 Regulations by S.B.T.E.T (A.P) can check your Grades here. </h2>
-        <a href="https://docs.google.com/document/d/1d_gu-wMN8geX_lo9gpgLEnmZWl9tjalDBEjsLeiABPU/edit" target="_blank" rel="noopener noreferrer">See How the grades are calculated</a>
-        </div>
-        <div id="main">
-            <form action="">
-                <p class="label">Select Your Curriculam
-                <input type="radio" name="curriculam" id="">C20
-                <input type="radio" name="curriculam" id="">C23<br></p>
-                
-
-                <label for="1st">Enter First Year Marks</label>
-                
-                <br><input type="text" id="1st" placeholder="1000" maxlength="4">
-                <br>
-                <label for="3rd">Enter 3 rd Sem Marks </label>
-                
-                <br><input type="text" id="3rd" placeholder="900" maxlength="3">
-                <br>
-
-                <label for="4th">Enter 4 th Sem Marks </label> 
-                <br><input type="text" id="4th" placeholder="900" maxlength="3">
-                <br>
-
-                <label for="5th">Enter 5 th Sem Marks </label>  
-                <br><input type="text" id="5th" placeholder="900" maxlength="3">
-                <br>
-
-                <label for="6th">Enter 6 th Sem Marks </label>  
-                <br><input type="text" id="6th" placeholder="300" maxlength="3">
-
-                <br>
-                <button type="button" class="button" onclick="calculate()">SUBMIT</button>
-
-                <button type="reset" class="button">RESET</button>
-
-                <br>
-                <label for="">Your Final Percentage Here</label><br>
-                <input id="total">
-                <p id="total"></p>
-               
-            </form>
-        
-        </div>
+      <h1>Diploma Marks Calculator</h1>
+      <h2>Note: This calculator is designed for C20,C16 &C23 regulations by S.B.T.E.T (A.P).</h2>
+      <p id="calculated_details" onclick="toggleDetails()">Learn How grades are calculated?</p>
+      <div id="details_section" style="display: none;">
+        <p>
+          The grades are calculated based on the following rules:
+        <ul>
+          <li>First Year Marks contribute 25% to the final percentage.</li>
+          <li>Each semester is evaluated separately, and marks are added to calculate the final percentage.</li>
+          <li>Total marks considered: 3250.</li>
+        </ul>
+        Make sure to enter your marks correctly to get an accurate result!
+        </p>
+      </div>
     </header>
-    <script>
-       
-        function calculate() {
-            var sem1 = parseInt(document.getElementById('1st').value);
-            var sem3 = parseInt(document.getElementById('3rd').value);
-            var sem4 = parseInt(document.getElementById('4th').value);
-            var sem5 = parseInt(document.getElementById('5th').value);
-            var sem6 = parseInt(document.getElementById('6th').value);
-        
-            // You don't need to multiply these by 1
-            // sem1 = sem1 * 1;
-            // sem3 = sem3 * 1;
-            // sem4 = sem4 * 1;
-            // sem5 = sem5 * 1;
-            // sem6 = sem6 * 1;
-        
-            var total = (((sem1 * 0.25) + sem3 * 1 + sem4 * 1 + sem5 * 1 + sem6 * 1) / 3250) * 100;
-            document.getElementById("total").value = parseFloat(total.toFixed(2)); // Fixed to two decimal places
-        }
-        
-    </script>
-    
+    <div id="main">
+      <form>
+        <label>Select Your Curriculum:</label>
+        <div>
+          <input type="radio" name="curriculum" id="c20" checked> C16, C20, C23
+          <!-- <input type="radio" name="curriculum" id="c23"> C16 -->
+        </div>
+
+        <label for="1st">Enter First Year Marks:</label>
+        <input type="number" id="1st" placeholder="1000" maxlength="4">
+
+        <label for="3rd">Enter 3rd Semester Marks:</label>
+        <input type="number" id="3rd" placeholder="900" maxlength="3">
+
+        <label for="4th">Enter 4th Semester Marks:</label>
+        <input type="number" id="4th" placeholder="900" maxlength="3">
+
+        <label for="5th">Enter 5th Semester Marks:</label>
+        <input type="number" id="5th" placeholder="900" maxlength="3">
+
+        <label for="6th">Enter 6th Semester Marks:</label>
+        <input type="number" id="6th" placeholder="300" maxlength="3">
+
+        <div class="button-container">
+          <button type="reset" class="button reset-btn">Reset</button>
+          <button type="button" class="button submit-btn" onclick="calculate()">Submit</button>
+        </div>
+
+        <div id="result"></div>
+      </form>
+    </div>
+  </div>
+  <script>
+    function calculate() {
+      const sem1 = parseFloat(document.getElementById('1st').value) || 0;
+      const sem3 = parseFloat(document.getElementById('3rd').value) || 0;
+      const sem4 = parseFloat(document.getElementById('4th').value) || 0;
+      const sem5 = parseFloat(document.getElementById('5th').value) || 0;
+      const sem6 = parseFloat(document.getElementById('6th').value) || 0;
+
+      const total = ((sem1 * 0.25 + sem3 + sem4 + sem5 + sem6) / 3250) * 100;
+      const result = document.getElementById('result');
+      result.textContent = `Your Final Percentage: ${total.toFixed(2)}%`;
+      alert(`Your Final Percentage is: ${total.toFixed(2)}%`);
+    }
+    function toggleDetails() {
+      const detailsSection = document.getElementById('details_section');
+      if (detailsSection.style.display === 'none') {
+        detailsSection.style.display = 'block'; // Show details
+      } else {
+        detailsSection.style.display = 'none'; // Hide details
+      }
+    }
+  </script>
 </body>
+
 </html>
