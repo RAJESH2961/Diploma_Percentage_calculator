@@ -28,8 +28,8 @@ The Diploma Percentage Calculator is a simple and efficient tool designed to cal
 
 ## Usage
 1. Open the web app in your browser.
-2. Enter the marks for each subject in the input fields.
-3. Click on "Calculate" to see the total marks and percentage.
+2. Enter the marks for each Semester in the input fields.
+3. Click on "Calculate" to see the total marks an percentage.
 
 ## Screenshots
 ### Home Page
