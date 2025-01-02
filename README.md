@@ -25,15 +25,6 @@ The Diploma Percentage Calculator is a simple and efficient tool designed to cal
    ```bash
    cd Diploma_Percentage_calculator
    ```
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Run the application:
-   ```bash
-   python app.py
-   ```
-5. Access the web app at `http://127.0.0.1:5000/`.
 
 ## Usage
 1. Open the web app in your browser.
