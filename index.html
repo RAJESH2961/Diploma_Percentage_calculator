@@ -4,13 +4,16 @@
   <title>DIPLOMA C20 - Marks Calculator | SBTET AP</title>
 
   <!-- 🔍 SEO Meta Tags -->
-  <meta name="description" content="Calculate your final diploma percentage for C20, C16, and C23 regulations under SBTET Andhra Pradesh easily with this smart tool." />
-  <meta name="keywords" content="diploma marks calculator, sbtet ap, c20 marks calculator, diploma c16 result, c23 sbtet, sbtet diploma percentage calculator" />
+  <meta name="description"
+    content="Calculate your final diploma percentage for C20, C16, and C23 regulations under SBTET Andhra Pradesh easily with this smart tool." />
+  <meta name="keywords"
+    content="diploma marks calculator, sbtet ap, c20 marks calculator, diploma c16 result, c23 sbtet, sbtet diploma percentage calculator" />
   <meta name="author" content="YourNameHere" />
 
   <!-- 🌐 Open Graph for better link previews -->
   <meta property="og:title" content="Diploma Marks Calculator - SBTET AP (C20/C16/C23)" />
-  <meta property="og:description" content="Smartly calculate your diploma final percentage using C20, C16, and C23 scheme. Built for AP SBTET students." />
+  <meta property="og:description"
+    content="Smartly calculate your diploma final percentage using C20, C16, and C23 scheme. Built for AP SBTET students." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://yourdomain.com/thumbnail.jpg" /> <!-- Replace with your image -->
   <meta property="og:url" content="https://yourdomain.com/" />
@@ -20,207 +23,208 @@
 
   <!-- 🖋️ Font -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
   <style>
     /* Reset and Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  height: 100vh;
-  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-  overflow: auto;
-}
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      overflow: auto;
+    }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
-}
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+    }
 
-header {
-  margin-bottom: 20px;
-  text-align: center;
-}
+    header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-h1 {
-  font-size: 3rem;
-  background: linear-gradient(45deg, #ff416c, #ff4b2b, #fcb045);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
-}
+    h1 {
+      font-size: 3rem;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b, #fcb045);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+    }
 
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
-}
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
 
-h2 {
-  font-weight: 300;
-  color: #bdc3c7;
-  margin-top: 10px;
-  font-size: 1.1rem;
-}
+    h2 {
+      font-weight: 300;
+      color: #bdc3c7;
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
 
-#calculated_details {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #00d2ff;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: 0.3s ease;
-}
+    #calculated_details {
+      cursor: pointer;
+      text-decoration: underline;
+      color: #00d2ff;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
 
-#calculated_details:hover {
-  color: #f9d423;
-}
+    #calculated_details:hover {
+      color: #f9d423;
+    }
 
-#details_section {
-  margin-top: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px 15px;
-  border-left: 4px solid #16a085;
-  border-radius: 10px;
-  text-align: left;
-}
+    #details_section {
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 15px;
+      border-left: 4px solid #16a085;
+      border-radius: 10px;
+      text-align: left;
+    }
 
-#main {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  padding: 30px;
-  width: 100%;
-  max-width: 500px;
-}
+    #main {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
+    }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
 
-/* Floating Labels */
-label {
-  font-weight: 600;
-  color: #ffffff;
-}
+    /* Floating Labels */
+    label {
+      font-weight: 600;
+      color: #ffffff;
+    }
 
-input {
-  padding: 14px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1px solid #888;
-  border-radius: 10px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
+    input {
+      padding: 14px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid #888;
+      border-radius: 10px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
 
-input:focus {
-  outline: none;
-  border-color: #00c3ff;
-  box-shadow: 0 0 8px rgba(0, 195, 255, 0.6);
-}
+    input:focus {
+      outline: none;
+      border-color: #00c3ff;
+      box-shadow: 0 0 8px rgba(0, 195, 255, 0.6);
+    }
 
-/* Button Styling */
-.button-container {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
+    /* Button Styling */
+    .button-container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-.button {
-  padding: 12px;
-  border: none;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-  flex: 1;
-}
+    .button {
+      padding: 12px;
+      border: none;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+      flex: 1;
+    }
 
-.submit-btn {
-  background: linear-gradient(45deg, #00b09b, #96c93d);
-  color: white;
-}
+    .submit-btn {
+      background: linear-gradient(45deg, #00b09b, #96c93d);
+      color: white;
+    }
 
-.reset-btn {
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);
-  color: white;
-}
+    .reset-btn {
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+    }
 
-.button:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
+    .button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
 
-.button:active {
-  transform: scale(0.96);
-}
+    .button:active {
+      transform: scale(0.96);
+    }
 
-#result {
-  margin-top: 20px;
-  font-size: 1.7rem;
-  font-weight: bold;
-  text-align: center;
-  color: #2ecc71;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
+    #result {
+      margin-top: 20px;
+      font-size: 1.7rem;
+      font-weight: bold;
+      text-align: center;
+      color: #2ecc71;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-  }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
 
-  #main {
-    padding: 20px;
-  }
+      #main {
+        padding: 20px;
+      }
 
-  .button-container {
-    flex-direction: column;
-  }
+      .button-container {
+        flex-direction: column;
+      }
 
-  .button {
-    width: 100%;
-  }
-}
+      .button {
+        width: 100%;
+      }
+    }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.7rem;
-  }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7rem;
+      }
 
-  h2 {
-    font-size: 0.9rem;
-  }
+      h2 {
+        font-size: 0.9rem;
+      }
 
-  input {
-    font-size: 0.9rem;
-  }
+      input {
+        font-size: 0.9rem;
+      }
 
-  .button {
-    font-size: 0.9rem;
-  }
-}
+      .button {
+        font-size: 0.9rem;
+      }
+    }
 
     /* Global Styles */
     body {
@@ -445,10 +449,31 @@ input:focus {
       /* cursor: pointer; */
 
     }
+
+
+
+    #bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 
+<canvas id="bg"></canvas>
+
+
 <body>
+  
   <div class="container">
 
 
@@ -522,6 +547,56 @@ input:focus {
       }
     }
   </script>
+  <script>
+    // Scene, Camera, Renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg'), alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.position.z = 30;
+
+    // Create stars (particles)
+    const starGeometry = new THREE.BufferGeometry();
+    const starCount = 1000;
+    const positions = new Float32Array(starCount * 3);
+
+    for (let i = 0; i < starCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 200;
+    }
+
+    starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const starMaterial = new THREE.PointsMaterial({
+      color: 0xffffff,
+      size: 0.7,
+      transparent: true,
+      opacity: 0.7,
+    });
+
+    const stars = new THREE.Points(starGeometry, starMaterial);
+    scene.add(stars);
+
+    // Animate the background
+    function animate() {
+      requestAnimationFrame(animate);
+
+      stars.rotation.x += 0.0005;
+      stars.rotation.y += 0.001;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Responsive canvas
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
 </body>
 
 </html>
